@@ -1,0 +1,82 @@
+:root {
+  
+    --background-primary: #021c39;
+    --background-secondary: #14a3bd;
+    --foreground-primary: #99cfff;
+    --foreground-secondary: #001a40;
+    --accent-primary: #b60c0c;
+    --accent-secondary: #d5533c;
+    --accent-tertiary: #cba655;
+  
+    --background: var(--background-secondary);
+    --foreground: var(--foreground-secondary);
+    --accent: var(--accent-secondary);
+    --background-2: var(--background-primary);
+    --foreground-2: var(--foreground-primary);
+    --accent-2: var(--accent-primary);
+
+    --scrollbar-bg: #001225;
+    --scrollbar-thumb: var(--accent-tertiary);
+    --scrollbar-thumb-hover: #f0c465;
+}
+
+/* Basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Scrollbar styling (optional, for browsers that support it) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* Center container */
+.container {
+    text-align: center;
+    background: var(--background-2);
+    padding: 3rem 4rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    max-width: 500px;
+    border: 3px solid var(--accent-tertiary);
+}
+
+.container h1 {
+    color: var(--foreground-2);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+.container p {
+    font-size: 1.2rem;
+    color: var(--foreground-2);
+}
+
+/* "Coming Soon" highlight */
+.coming-soon {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
