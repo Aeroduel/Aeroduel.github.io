@@ -1,5 +1,4 @@
 :root {
-  
     --background-primary: #021c39;
     --background-secondary: #14a3bd;
     --foreground-primary: #99cfff;
@@ -7,7 +6,7 @@
     --accent-primary: #b60c0c;
     --accent-secondary: #d5533c;
     --accent-tertiary: #cba655;
-  
+
     --background: var(--background-secondary);
     --foreground: var(--foreground-secondary);
     --accent: var(--accent-secondary);
@@ -33,50 +32,104 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 /* Scrollbar styling (optional, for browsers that support it) */
 ::-webkit-scrollbar {
     width: 12px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--scrollbar-bg);
+    border-radius: 12px;
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb);
+    border-radius: 12px;
+    border: 3px solid var(--scrollbar-bg); /* adds padding effect */
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbar-thumb-hover);
 }
 
+
 /* Center container */
 .container {
+    position: relative;
     text-align: center;
     background: var(--background-2);
-    padding: 3rem 4rem;
+    padding-top: 4.5rem;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    max-width: 500px;
+    max-width: 800px;
     border: 3px solid var(--accent-tertiary);
+    overflow: hidden;
 }
+
+/* Construction tape bar on top of container */
+.container::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3rem; /* Adjust thickness as you like */
+    border-radius: 12px 12px 0 0; /* Match container top corners */
+    background: repeating-linear-gradient(
+            -45deg,
+            var(--accent-tertiary) 0,
+            var(--accent-tertiary) 15px,
+            #222222 15px,
+            #222222 30px
+    );
+    margin-top: -3rem; /* Pulls the tape above the container */
+    position: relative;
+    top: -40px;
+}
+
 
 .container h1 {
     color: var(--foreground-2);
     margin-bottom: 1rem;
     font-size: 2.2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .container p {
     font-size: 1.2rem;
     color: var(--foreground-2);
+    margin: 1.5rem 3rem 2rem 3rem;
 }
 
-/* "Coming Soon" highlight */
-.coming-soon {
-    margin-top: 1.5rem;
-    font-size: 1.5rem;
+/* Footer copyright notice */
+.footer {
+    color: white;
+    padding: 0.5rem;
+    width: 100vw;
+    background-color: var(--foreground-secondary);
+    text-align: center;
+}
+
+/* Follow on GitHub button */
+.github-custom-button {
+    margin: 1rem auto;
+    padding: 0.7rem 1.4rem;
+    background: var(--accent);
+    color: var(--foreground-secondary);
     font-weight: bold;
-    color: var(--accent);
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.github-custom-button:hover {
+    transform: scale(1.025);
+}
+
+.github-custom-button:active {
+    transform: scale(0.975);
 }
